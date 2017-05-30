@@ -41,12 +41,17 @@ class Analyser {
         
         $jiraproject = $jiraprojects[self::$projectmap[$plugin]];
 
+        $result = [];
         foreach ($tags as $tag) {
             $jiratag = $this->find_jira_version_for_tag($tag, array_keys($jiraproject->versions));
             if (!is_null($jiratag)) {
-                echo "Matched $tag with " . $jiratag . "\n";
+                $result[$tag] = $jiratag;
+            } else {
+                $result[$tag] = null;
             }
         }
+
+        return $result;
     }
 
     private function find_jira_version_for_tag($tag, $jiraversions) {
