@@ -77,6 +77,8 @@ class Analyser {
             }
             $this->log->debug("$jiraversion normalised: $jiranormalised");
 
+            // TODO: Remove any prefixes - compare only numeric bit.
+            
             if ($jiranormalised == $normalised) {
                 return $jiraversion;
             }
