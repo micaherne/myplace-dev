@@ -67,7 +67,7 @@ class Analyser {
 
         // TODO: Refactor duplication in next two blocks.
 
-        // Try to find exact version.
+        // Try to match minor version.
         foreach ($jiraversions as $jiraversion) {
             try {
                 $jiranormalised = $parser->normalize($jiraversion);
@@ -77,9 +77,10 @@ class Analyser {
             }
             $this->log->debug("$jiraversion normalised: $jiranormalised");
 
-            // TODO: Remove any prefixes - compare only numeric bit.
-            
-            if ($jiranormalised == $normalised) {
+            $j = explode('.', $jiranormalised);
+            $n = explode('.', $normalised);
+
+            if ($j[1] == $n[1] && $j[0] == $n[0]) {
                 return $jiraversion;
             }
         }
