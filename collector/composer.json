@@ -1,0 +1,23 @@
+{
+    "name": "micaherne/myplace-dev-collector",
+    "description": "Collects data on codebase",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Michael Aherne",
+            "email": "micaherne@blueyonder.co.uk"
+        }
+    ],
+    "require": {
+        "cache/filesystem-adapter": "^0.4.0",
+        "psr/log": "^1.0",
+        "psr/cache": "^1.0",
+        "monolog/monolog": "^1.22",
+        "composer/semver": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myplace\\Dev\\Collector\\": "src//"
+        }
+    }
+}
